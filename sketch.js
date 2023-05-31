@@ -18,8 +18,8 @@ function setup() {
   /*scales the canvas according to changes in the number 
   of rows and/or columns needed to display, and changes in 
   scaling size of stepSize*/
-  createCanvas(stepSize*cols, stepSize*rows);
-  
+  createCanvas(stepSize*cols, stepSize*rows+150);
+  instructionMenu();
   //changes the standard of radians to degrees for rotation
   angleMode(DEGREES);
 }
@@ -27,8 +27,32 @@ function setup() {
 function draw() {
   background(125);
 
+  image(instructionMenu(), 0,height-150);
+
   colorGrid();
   compassGrid();
+}
+/////////////////////////////////////////////////////////////////
+//draws the instructions to the canvas
+function instructionMenu()
+{
+  var instruction = createGraphics(width, 150);
+  instruction.background(255);
+  instruction.fill(0);
+  instruction.stroke(0,255,0);
+  instruction.rect(0,0,instruction.width,instruction.height,20);
+  instruction.fill(255);
+  instruction.stroke(0);
+  instruction.textSize(15);
+  instruction.text("Welcome to the Noisy Grid",10,20);
+  instruction.text("Grid Controls:\n"+
+                   "The speed at which the lines move is controlled by the mouse position\n"+
+                   "on the page in the horizontal direction.\n\n"+
+                   "left side = Fastest\n"+
+                   "right side = Slowest",10,45);
+  // instruction.text("Note:\nWhen using the Radial Blur Filter or Earlybird Filter,\nclick the section on the origional color image you want shown \nas the focal point.",300,50);
+
+  return instruction;
 }
 ///////////////////////////////////////////////////////////////////////
 function colorGrid(){
