@@ -1,3 +1,6 @@
+//button variable
+var projectButton;
+
 //Changing the step size will scale the grid 
 var stepSize = 20;
 //changing the cols variable adds more columns in the x direction
@@ -19,7 +22,13 @@ function setup() {
   of rows and/or columns needed to display, and changes in 
   scaling size of stepSize*/
   createCanvas(stepSize*cols, stepSize*rows+150);
+  //initilises the instructions upon page load
   instructionMenu();
+  //initilises the button that redirects the user to the supporting documentation page
+  projectButton = createButton("Click Me!");
+  projectButton.position(width/2+125, height-43);
+  projectButton.size(100,35);
+  projectButton.mouseClicked(toProject);
   //changes the standard of radians to degrees for rotation
   angleMode(DEGREES);
 }
@@ -50,6 +59,8 @@ function instructionMenu()
                    "on the page in the horizontal direction.\n\n"+
                    "left side = Fastest\n"+
                    "right side = Slowest",10,45);
+  instruction.text("Supporting Documentation  ==>",155,130);
+
   return instruction;
 }
 ///////////////////////////////////////////////////////////////////////
@@ -109,6 +120,7 @@ function compassGrid(){
   }
 }
 
+/////////////////////////////////////////////////////////////////
 //Compass Needle Class 
 function CompassNeedle(i,j)
 {
@@ -148,4 +160,11 @@ function CompassNeedle(i,j)
     
     pop(); 
   }
+}
+
+/////////////////////////////////////////////////////////////////
+//navigates to the page with supporting documentation
+function toProject()
+{
+  location.href="https://cerrmor.github.io/project_pages/noisyGrid.html";
 }
