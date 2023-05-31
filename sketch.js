@@ -50,13 +50,10 @@ function instructionMenu()
                    "on the page in the horizontal direction.\n\n"+
                    "left side = Fastest\n"+
                    "right side = Slowest",10,45);
-  // instruction.text("Note:\nWhen using the Radial Blur Filter or Earlybird Filter,\nclick the section on the origional color image you want shown \nas the focal point.",300,50);
-
   return instruction;
 }
 ///////////////////////////////////////////////////////////////////////
 function colorGrid(){
-  // your code here
   push();
   //iterates the number of columns
   for( var x = 0; x < cols; x++)
